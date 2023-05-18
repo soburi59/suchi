@@ -1,18 +1,17 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 def simulate_pendulum(l, m, k, g, theta_0, theta_dot_0, t_f, t_e, h):
-    theta = [theta_0]
-    theta_dot = [theta_dot_0]
-    t = [t_f]
+    t = np.arange(t_f, t_e, h)
+    n = len(t)
+    theta = np.zeros(n)
+    theta_dot = np.zeros(n)
 
-    # オイラー法で微分方程式を解く
-    i = 0
-    while t[i] < t_e:
-        theta_ddot = -(k/m)*theta_dot[i] - (g/l)*np.sin(theta[i]) #θ''
-        theta_dot.append(theta_dot[i] + h*theta_ddot) #θ'
-        theta.append(theta[i] + h*theta_dot[i]) #θ
-        t.append(t[i] + h)
-        i += 1
+    theta[0] = theta_0
+    theta_dot[0] = theta_dot_0
+
+    for i in range(1, n):
+        theta_ddot = -(k/m) * theta_dot[i-1] - (g/l) * np.sin(theta[i-1])  # θ''
+        theta_dot[i] = theta_dot[i-1] + h * theta_ddot  # θ'
+        theta[i] = theta[i-1] + h * theta_dot[i-1]  # θ
 
     return theta
