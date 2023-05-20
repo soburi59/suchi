@@ -5,14 +5,14 @@ def simulate_pendulum(p):
     m = p['m']
     k = p['k']
     g = p['g']
-    theta_0 = p['theta_0']
-    theta_dot_0 = p['theta_dot_0']
+    theta = p['theta']
+    theta_dot = p['theta_dot']
     t_f = p['t_f']
     t_e = p['t_e']
     h = p['h']
 
-    theta = [theta_0]
-    theta_dot = [theta_dot_0]
+    theta = [theta]
+    theta_dot = [theta_dot]
     t = [t_f]
 
     # オイラー法で微分方程式を解く

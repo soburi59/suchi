@@ -13,8 +13,8 @@ def init_p():
         'm' : 1.0,  # 重りの重さ
         'k' : 1.0,  # 粘性減衰係数
         'g' : 9.80665,  # 重力加速度
-        'theta_0' : 1.0,  # 振り子の初期角度
-        'theta_dot_0' : 0.0,  # 角速度の初期値
+        'theta' : 1.0,  # 振り子の初期角度
+        'theta_dot' : 0.0,  # 角速度の初期値
         't_f' : 0.0,  # 開始時刻
         't_e' : 15.0,  # 終了時刻
         'h' : 0.001 # 刻み幅
@@ -35,4 +35,9 @@ p['k']=[0.5,1,1.5]
 simu(p,'k','ex1-2-k-out.png')
 
 init_p()
-p[]
+p['theta']=[-1.0,0,1.0]
+simu(p,'theta','ex1-2-theta-out.png')
+
+init_p()
+p['theta_dot']=[1.0,0.0,-1.0]
+simu(p,'theta_dot','ex1-2-theta_dot_0.png')
