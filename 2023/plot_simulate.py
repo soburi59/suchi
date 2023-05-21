@@ -6,7 +6,7 @@ from simulate_pendulum import *
 import matplotlib.pyplot as plt
 import numpy as np
 
-def simulation_comparison_plot(p, which_is_list, filename):
+def sim_pendulum_plot(p, which_is_list, filename):
     print(p)
     # リスト型の引数
     list_type_var = p[which_is_list]
@@ -16,16 +16,12 @@ def simulation_comparison_plot(p, which_is_list, filename):
     for var in list_type_var:
         p[which_is_list] = var
         print(p)
-        theta = simulate_pendulum(p)
-        t = [p['t_f']]
-        i=0
-        while t[i] <= p['t_e']:
-            t.append(t[i] + p['h'])
-            i += 1
+        theta,t = simulate_pendulum(p)
         plt.plot(t, theta, label=f"{which_is_list}={var}")
-    plt.xlabel("Time [sec]")
-    plt.ylabel("θ [rad]")
+    plt.xlabel("t[sec]")
+    plt.ylabel("θ[rad]")
     plt.title("Simulation of a pendulum using the Euler method")
+    plt.grid(True)
     plt.legend()
     plt.savefig(f"./out/{filename}")
     
@@ -42,4 +38,4 @@ if __name__=='__main__':
         # hのリスト
         'h' : [0.05, 0.02, 0.001]
     }
-    simulation_comparison_plot(parameters, 'h' , 'ex1-1-out.png')
+    sim_pendulum_plot(parameters, 'h' , 'ex1-1-out.png')

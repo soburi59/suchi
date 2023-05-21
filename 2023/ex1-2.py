@@ -4,7 +4,7 @@ coding: utf-8
 
 """
 from simulate_pendulum import *
-from plot_simulate import *
+from plot-simulate import *
 p = dict()
 def init_p():
     global p
@@ -20,7 +20,7 @@ def init_p():
         'h' : 0.001 # 刻み幅
     }
 init_p()
-simu=simulation_comparison_plot
+simu=sim_pendulum_plot
 
 init_p()
 p['l']=[0.5,1,1.5]
@@ -39,5 +39,5 @@ p['theta']=[-1.0,0,1.0]
 simu(p,'theta','ex1-2-theta-out.png')
 
 init_p()
-p['theta_dot']=[1.0,0.0,-1.0]
-simu(p,'theta_dot','ex1-2-theta_dot_0.png')
+p['theta_dot']=[5.0,0.0,-5.0]
+simu(p,'theta_dot','ex1-2-theta_dot.png')
