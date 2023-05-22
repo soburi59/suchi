@@ -4,7 +4,7 @@ coding: utf-8
 
 """
 from simulate_pendulum import *
-from plot-simulate import *
+from plot_simulate import *
 p = dict()
 def init_p():
     global p
@@ -40,4 +40,4 @@ simu(p,'theta','ex1-2-theta-out.png')
 
 init_p()
 p['theta_dot']=[5.0,0.0,-5.0]
-simu(p,'theta_dot','ex1-2-theta_dot.png')
+simu(p,'theta_dot','ex1-2-theta_dot-out.png')
