@@ -35,7 +35,7 @@ p['k']=[0.5,1,1.5]
 simu(p,'k','ex1-2-k-out.png')
 
 init_p()
-p['theta']=[-1.0,0,1.0]
+p['theta']=[1.0,0.5,0]
 simu(p,'theta','ex1-2-theta-out.png')
 
 init_p()
